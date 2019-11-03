@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginLeft="18dp"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/img_item_photo"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:scaleType="centerCrop"
+        tools:src="@color/colorAccent" />
+    <TextView
+        app:layout_constraintLeft_toRightOf="@+id/img_item_photo"
+        app:layout_constraintTop_toTopOf="@+id/img_item_photo"
+        android:layout_margin="5dp"
+        android:id="@+id/tv_pengajian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pengajian">
+
+    </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>
