@@ -1,12 +1,16 @@
 package com.example.aplikasipengajian;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -16,9 +20,11 @@ import java.util.ArrayList;
 
 public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.GridViewHolder>{
     private ArrayList<MenuPengajian> pengajianArrayList;
+    Context mContext;
 
-    public PengajianAdapter(ArrayList<MenuPengajian> list){
+    public PengajianAdapter(Context context,ArrayList<MenuPengajian> list){
         this.pengajianArrayList = list;
+        mContext = context;
     }
 
 
@@ -30,7 +36,8 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GridViewHolder holder, final int position) {
+        final MainActivity mainActivity = new MainActivity();
         MenuPengajian menuPengajian= pengajianArrayList.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(menuPengajian.getFoto())
@@ -38,6 +45,14 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
                 .into(holder.imgPhoto);
 
         holder.tvName.setText(menuPengajian.getNama());
+
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "klik "+pengajianArrayList.get(position), Toast.LENGTH_SHORT).show();
+                mainActivity.testRetrofitRequest();
+            }
+        });
     }
 
     @Override
@@ -48,12 +63,13 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
     public class GridViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName;
+        ConstraintLayout constraintLayout;
         public GridViewHolder(@NonNull View itemView) {
             //karena ada konstruktor parent
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_pengajian);
-
+            constraintLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
 }

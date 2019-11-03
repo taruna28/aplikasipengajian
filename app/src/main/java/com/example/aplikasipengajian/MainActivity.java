@@ -5,13 +5,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<MenuPengajian> list = new ArrayList<>();
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +53,40 @@ public class MainActivity extends AppCompatActivity {
 
     private void showRecyclerList(){
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        PengajianAdapter pengajianAdapter = new PengajianAdapter(list);
+        PengajianAdapter pengajianAdapter = new PengajianAdapter(this,list);
         recyclerView.setAdapter(pengajianAdapter);
     }
+
+    public void testRetrofitRequest(){
+        PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
+
+        Call<JadwalPengajianResponse> responseCall = pengajianApi.jadwalPengajian();
+
+        responseCall.enqueue(new Callback<JadwalPengajianResponse>() {
+            @Override
+            public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
+                Log.d(TAG, "onResponse: "+ response.toString());
+                if (response.code()==200){
+                    Log.d(TAG, "onResponse: "+response.body().toString());
+                    List<MenuPengajian> menuPengajians = new ArrayList<>(response.body().getMenuPengajians());
+                    for (MenuPengajian pengajian : menuPengajians){
+                        Log.d(TAG, "onResponse: "+pengajian.getKode_pengajian());
+                    }
+                }
+                else {
+                    try {
+                        Log.d(TAG, "onResponse: "+response.errorBody().string());
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JadwalPengajianResponse> call, Throwable t) {
+                Log.d(TAG, "onFailure: gagal");
+            }
+        });
+    }
+
 }
