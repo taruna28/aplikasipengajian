@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu_utama">
+    tools:context=".DetailJadwalActivity">
 
     <TextView
+        android:id="@+id/detail_test"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ini activity menu lain"/>
+        android:text="ini detail activity jadwal"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

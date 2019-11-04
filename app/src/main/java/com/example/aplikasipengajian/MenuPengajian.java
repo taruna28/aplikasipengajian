@@ -59,6 +59,25 @@ class MenuPengajian implements Parcelable {
         }
     };
 
+    public MenuPengajian(String kode_pengajian, String nama_pengajian, String tema, String deskripsi, String penyelenggara, String pengisi_acara, String alamat, String latitude, String longitude, String keterangan, String tgl_posting, String tgl_pelaksanaan, String jam_pelaksanaan, String ulasan, String status, String gambar) {
+        this.kode_pengajian = kode_pengajian;
+        this.nama_pengajian = nama_pengajian;
+        this.tema = tema;
+        this.deskripsi = deskripsi;
+        this.penyelenggara = penyelenggara;
+        this.pengisi_acara = pengisi_acara;
+        this.alamat = alamat;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.keterangan = keterangan;
+        this.tgl_posting = tgl_posting;
+        this.tgl_pelaksanaan = tgl_pelaksanaan;
+        this.jam_pelaksanaan = jam_pelaksanaan;
+        this.ulasan = ulasan;
+        this.status = status;
+        this.gambar = gambar;
+    }
+
     public String getKode_pengajian() {
         return kode_pengajian;
     }

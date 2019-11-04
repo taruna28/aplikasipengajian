@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,12 +16,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.GridViewHolder>{
-    private ArrayList<MenuPengajian> pengajianArrayList;
+public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.GridViewHolder>{
+    private List<MenuPengajian> pengajianArrayList;
     Context mContext;
+    ListPengajianActivity listPengajianActivity = new ListPengajianActivity();
 
-    public PengajianAdapter(Context context,ArrayList<MenuPengajian> list){
+    public ListJadwalAdapter(Context context, List<MenuPengajian> list){
         this.pengajianArrayList = list;
         mContext = context;
     }
@@ -38,15 +38,14 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
 
     @Override
     public void onBindViewHolder(@NonNull GridViewHolder holder, final int position) {
-        final MainActivity mainActivity = new MainActivity();
+//        final MainActivity mainActivity = new MainActivity();
         MenuPengajian menuPengajian= pengajianArrayList.get(position);
-        Glide.with(holder.itemView.getContext())
-                .load(menuPengajian.getFoto())
-                .apply(new RequestOptions().override(550,550))
-                .into(holder.imgPhoto);
+//        Glide.with(holder.itemView.getContext())
+//                .load(menuPengajian.getFoto())
+//                .apply(new RequestOptions().override(550,550))
+//                .into(holder.imgPhoto);
 
-        holder.tvName.setText(menuPengajian.getNama());
-
+        holder.tvName.setText(menuPengajian.getKode_pengajian());
 
 //        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -88,20 +87,10 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
         @Override
         public void onClick(View v) {
             final Intent intent;
-            switch (getAdapterPosition()){
-                case 0:
-                    intent =  new Intent(ucontext, ListPengajianActivity.class);
-                    break;
-
-                case 1:
-                    intent =  new Intent(ucontext, Menu_utama.class);
-                    break;
-
-                default:
-                    intent =  new Intent(ucontext, Menu_utama.class);
-                    break;
-            }
+            intent = new Intent(ucontext,DetailJadwalActivity.class);
+            intent.putExtra("kode_pengajian",pengajianArrayList.get(getAdapterPosition()));
             ucontext.startActivity(intent);
+            listPengajianActivity.testRetrofitRequest();
         }
     }
 
