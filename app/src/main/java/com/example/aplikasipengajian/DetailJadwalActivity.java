@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailJadwalActivity extends AppCompatActivity {
     TextView textView;
 
@@ -15,7 +18,7 @@ public class DetailJadwalActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.detail_test);
 
-        String kode = getIntent().getExtras().getString("kode_pengajian");
+        String kode = getIntent().getExtras().getString("Kode_pengajian");
 
         textView.setText(kode);
     }

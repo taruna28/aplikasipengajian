@@ -46,7 +46,8 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
 //                .into(holder.imgPhoto);
 
         holder.tvName.setText(menuPengajian.getKode_pengajian());
-
+        holder.tvNamaPengajian.setText(menuPengajian.getNama_pengajian());
+        holder.tvtema.setText(menuPengajian.getTema());
 //        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -68,7 +69,7 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
 
 
         ImageView imgPhoto;
-        TextView tvName;
+        TextView tvName,tvNamaPengajian,tvtema;
         ConstraintLayout constraintLayout;
         Context ucontext;
 
@@ -77,6 +78,8 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_pengajian);
+            tvNamaPengajian= itemView.findViewById(R.id.tv_nama_pengajian);
+            tvtema = itemView.findViewById(R.id.tv_tema_pengajian);
             constraintLayout = itemView.findViewById(R.id.parent_layout);
             ucontext = itemView.getContext();
             constraintLayout.setOnClickListener(this);
@@ -87,8 +90,10 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
         @Override
         public void onClick(View v) {
             final Intent intent;
+            int pos = getAdapterPosition();
             intent = new Intent(ucontext,DetailJadwalActivity.class);
-            intent.putExtra("kode_pengajian",pengajianArrayList.get(getAdapterPosition()));
+//            intent.putExtra("kode_pengajian",pengajianArrayList.get(getAdapterPosition()));
+            intent.putExtra("Kode_pengajian",pengajianArrayList.get(pos).getKode_pengajian());
             ucontext.startActivity(intent);
             listPengajianActivity.testRetrofitRequest();
         }

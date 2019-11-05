@@ -24,7 +24,26 @@
         android:id="@+id/tv_pengajian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pengajian">
+        tools:text="pengajian">
 
     </TextView>
+
+    <TextView
+        app:layout_constraintLeft_toRightOf="@+id/img_item_photo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pengajian"
+        android:layout_margin="5dp"
+        android:id="@+id/tv_tema_pengajian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="pengajian"/>
+
+    <TextView
+        app:layout_constraintLeft_toRightOf="@+id/tv_pengajian"
+        app:layout_constraintTop_toTopOf="@+id/img_item_photo"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_nama_pengajian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="pengajian"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
