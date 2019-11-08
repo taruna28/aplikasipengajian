@@ -77,7 +77,7 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
             //karena ada konstruktor parent
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_pengajian);
+            tvName = itemView.findViewById(R.id.tv_nama_pengajian);
             constraintLayout = itemView.findViewById(R.id.parent_layout);
             ucontext = itemView.getContext();
             constraintLayout.setOnClickListener(this);
@@ -94,7 +94,7 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
                     break;
 
                 case 1:
-                    intent =  new Intent(ucontext, Menu_utama.class);
+                    intent =  new Intent(ucontext, MapsActivity.class);
                     break;
 
                 default:

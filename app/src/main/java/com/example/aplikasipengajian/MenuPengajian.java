@@ -78,6 +78,9 @@ class MenuPengajian implements Parcelable {
         this.gambar = gambar;
     }
 
+    public MenuPengajian(String latitude, String longitude) {
+    }
+
     public String getKode_pengajian() {
         return kode_pengajian;
     }

@@ -5,6 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 //dokumentasi
+
+    MenuPengajian menuPengajian = new MenuPengajian();
     private static Retrofit.Builder retrofitBuilder = new Retrofit.Builder().baseUrl("https://app-pengajian.000webhostapp.com/")
             .addConverterFactory(GsonConverterFactory.create());
 

@@ -11,5 +11,6 @@
         <item>https://upload.wikimedia.org/wikipedia/commons/3/3f/Ahmad_Yani.jpg</item>
         <item>https://upload.wikimedia.org/wikipedia/commons/e/ed/Bung_Tomo.jpg</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

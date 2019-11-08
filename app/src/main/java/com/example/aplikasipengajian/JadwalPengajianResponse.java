@@ -10,9 +10,8 @@ public class JadwalPengajianResponse {
 
     @SerializedName("record")
     @Expose()
-//    private List<MenuPengajian> records = null;
 
-    private List<MenuPengajian> menuPengajians = null;
+    private List<MenuPengajian> menuPengajians ;
 
     public JadwalPengajianResponse(List<MenuPengajian> list) {
         this.menuPengajians = list;

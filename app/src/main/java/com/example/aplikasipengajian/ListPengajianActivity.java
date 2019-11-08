@@ -75,22 +75,6 @@ public class ListPengajianActivity extends AppCompatActivity {
         responseCall.enqueue(new Callback<JadwalPengajianResponse>() {
             @Override
             public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
-//                Log.d(TAG, "onResponse: "+ response.toString());
-//                if (response.code()==200){
-//                    Log.d(TAG, "onResponse: "+response.body().toString());
-//                    List<MenuPengajian> menuPengajians = new ArrayList<>(response.body().getMenuPengajians());
-//                    for (MenuPengajian pengajian : menuPengajians){
-//                        Log.d(TAG, "onResponse: "+pengajian.getKode_pengajian());
-//                    }
-//                }
-//                else {
-//                    try {
-//                        Log.d(TAG, "onResponse: "+response.errorBody().string());
-//                    }catch (IOException e){
-//                        e.printStackTrace();
-//                    }
-//                }
-                ;
 
                 if (response.isSuccessful()){
                     try {

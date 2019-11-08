@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.GridViewHolder>{
@@ -40,14 +39,16 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
     public void onBindViewHolder(@NonNull GridViewHolder holder, final int position) {
 //        final MainActivity mainActivity = new MainActivity();
         MenuPengajian menuPengajian= pengajianArrayList.get(position);
-//        Glide.with(holder.itemView.getContext())
-//                .load(menuPengajian.getFoto())
-//                .apply(new RequestOptions().override(550,550))
-//                .into(holder.imgPhoto);
 
-        holder.tvName.setText(menuPengajian.getKode_pengajian());
+//        http://app-pengajian.000webhostapp.com/ypathfile/pbm2.PNG
+        Glide.with(holder.itemView.getContext())
+                .load("http://app-pengajian.000webhostapp.com/ypathfile/"+menuPengajian.getGambar())
+                .apply(new RequestOptions().override(550,550))
+                .into(holder.imgPhoto);
+
+        holder.tvPengisiAcara.setText(menuPengajian.getPengisi_acara());
         holder.tvNamaPengajian.setText(menuPengajian.getNama_pengajian());
-        holder.tvtema.setText(menuPengajian.getTema());
+        holder.tvWaktu.setText(menuPengajian.getTgl_pelaksanaan()+" - "+menuPengajian.getJam_pelaksanaan());
 //        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -69,7 +70,7 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
 
 
         ImageView imgPhoto;
-        TextView tvName,tvNamaPengajian,tvtema;
+        TextView tvPengisiAcara,tvNamaPengajian, tvWaktu;
         ConstraintLayout constraintLayout;
         Context ucontext;
 
@@ -77,9 +78,9 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
             //karena ada konstruktor parent
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_pengajian);
+            tvPengisiAcara = itemView.findViewById(R.id.tv_nama_pengisi);
             tvNamaPengajian= itemView.findViewById(R.id.tv_nama_pengajian);
-            tvtema = itemView.findViewById(R.id.tv_tema_pengajian);
+            tvWaktu = itemView.findViewById(R.id.tv_waktu);
             constraintLayout = itemView.findViewById(R.id.parent_layout);
             ucontext = itemView.getContext();
             constraintLayout.setOnClickListener(this);
@@ -93,7 +94,8 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
             int pos = getAdapterPosition();
             intent = new Intent(ucontext,DetailJadwalActivity.class);
 //            intent.putExtra("kode_pengajian",pengajianArrayList.get(getAdapterPosition()));
-            intent.putExtra("Kode_pengajian",pengajianArrayList.get(pos).getKode_pengajian());
+//            intent.putExtra("Kode_pengajian",pengajianArrayList.get(pos).getKode_pengajian());
+            intent.putExtra(DetailJadwalActivity.EXTRA_FILM,pengajianArrayList.get(pos));
             ucontext.startActivity(intent);
             listPengajianActivity.testRetrofitRequest();
         }
