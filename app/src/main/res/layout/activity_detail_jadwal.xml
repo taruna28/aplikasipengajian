@@ -6,12 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".DetailJadwalActivity">
 
-    <TextView
-        android:id="@+id/detail_test"
+    <ImageView
+        android:id="@+id/iv_gambar"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:id="@+id/tv_nama_pengajian1"
+        app:layout_constraintTop_toBottomOf="@id/iv_gambar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Pengajian"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_nama_pengajian2"
+        app:layout_constraintTop_toBottomOf="@id/tv_nama_pengajian1"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ini detail activity jadwal"/>
+
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_tema1"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_nama_pengajian2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tema"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_tema2"
+        app:layout_constraintTop_toBottomOf="@id/tv_tema1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ini detail activity jadwal"/>
+
+    <Button
+        android:layout_marginLeft="10dp"
+        android:id="@+id/btnMaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get direcetion"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nama_pengisi2"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_nama_pengisi"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_tema2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengisi acara"/>
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_nama_pengisi2"
+            app:layout_constraintTop_toBottomOf="@id/tv_nama_pengisi"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ini detail activity jadwal"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
