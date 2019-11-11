@@ -97,7 +97,7 @@ public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.Gr
 //            intent.putExtra("Kode_pengajian",pengajianArrayList.get(pos).getKode_pengajian());
             intent.putExtra(DetailJadwalActivity.EXTRA_FILM,pengajianArrayList.get(pos));
             ucontext.startActivity(intent);
-            listPengajianActivity.testRetrofitRequest();
+//            listPengajianActivity.testRetrofitRequest();
         }
     }
 

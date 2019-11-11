@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,12 +73,18 @@ public class ListPengajianActivity extends AppCompatActivity {
     public void testRetrofitRequest(){
         PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
         Call<JadwalPengajianResponse> responseCall = pengajianApi.jadwalPengajian();
+        final ProgressDialog progressDialog;
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Menyiapkan data");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
         responseCall.enqueue(new Callback<JadwalPengajianResponse>() {
             @Override
             public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
 
                 if (response.isSuccessful()){
                     try {
+
                         int total = response.body().getMenuPengajians().size();
 
                         for (int a=0; a<total;a++){
@@ -100,20 +107,26 @@ public class ListPengajianActivity extends AppCompatActivity {
                                     response.body().getMenuPengajians().get(a).getGambar());
                                    list.add(model);
                         }
+
                         JadwalPengajianResponse item = new JadwalPengajianResponse(list);
                         mCategoryDataList.add(item);
 
                         listJadwalAdapter = new ListJadwalAdapter(ListPengajianActivity.this,list);
                         recyclerView.setAdapter(listJadwalAdapter);
+
                     }catch (NullPointerException e){
                         e.printStackTrace();
                     }
+
                 }
+                progressDialog.dismiss();
              }
 
             @Override
             public void onFailure(Call<JadwalPengajianResponse> call, Throwable t) {
                 Log.d(TAG, "onFailure: gagal");
+                Toast.makeText(ListPengajianActivity.this, "Koneksi jaringan bermasalah", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
         });
     }
