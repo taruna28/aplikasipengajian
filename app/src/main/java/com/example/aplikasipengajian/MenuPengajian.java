@@ -4,24 +4,30 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 class MenuPengajian implements Parcelable {
+
     public String nama;
-    public String foto,
-            kode_pengajian,
-            nama_pengajian,
-            tema,
-            deskripsi,
-            penyelenggara,
-            pengisi_acara,
-            alamat,
-            latitude,
-            longitude,
-            keterangan,
-            tgl_posting,
-            tgl_pelaksanaan,
-            jam_pelaksanaan,
-            ulasan,
-            status,
-            gambar;
+    public String foto;
+
+    public String sukses;
+
+    public String username;
+    public String password;
+    public String kode_pengajian;
+    public String nama_pengajian;
+    public String tema;
+    public String deskripsi;
+    public String penyelenggara;
+    public String pengisi_acara;
+    public String alamat;
+    public String latitude;
+    public String longitude;
+    public String keterangan;
+    public String tgl_posting;
+    public String tgl_pelaksanaan;
+    public String jam_pelaksanaan;
+    public String ulasan;
+    public String status;
+    public String gambar;
 
     public MenuPengajian() {
     }
@@ -45,6 +51,8 @@ class MenuPengajian implements Parcelable {
         ulasan = in.readString();
         status = in.readString();
         gambar = in.readString();
+        username = in.readString();
+        password = in.readString();
     }
 
     public static final Creator<MenuPengajian> CREATOR = new Creator<MenuPengajian>() {
@@ -80,6 +88,31 @@ class MenuPengajian implements Parcelable {
 
     public MenuPengajian(String latitude, String longitude) {
     }
+
+    public String getSukses() {
+        return sukses;
+    }
+
+    public void setSukses(String sukses) {
+        this.sukses = sukses;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public String getKode_pengajian() {
         return kode_pengajian;
@@ -250,5 +283,7 @@ class MenuPengajian implements Parcelable {
         dest.writeString(ulasan);
         dest.writeString(status);
         dest.writeString(gambar);
+        dest.writeString(username);
+        dest.writeString(password);
     }
 }

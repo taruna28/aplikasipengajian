@@ -7,7 +7,6 @@ import java.util.List;
 
 public class JadwalPengajianResponse {
 
-
     @SerializedName("record")
     @Expose()
     private List<MenuPengajian> menuPengajians ;
