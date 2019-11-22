@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.code()==200){
                     Log.d(TAG, "onResponse: "+response.body().toString());
 
-                    if (response.body().equals("1")) {
+                    if (response.body().toString().equals("1")) {
                         Log.d(TAG, "onResponse: ini masuk 1");
                         List<MenuPengajian> menuPengajians = new ArrayList<>(response.body().getMenuPengajians());
                         for (MenuPengajian pengajian : menuPengajians) {
