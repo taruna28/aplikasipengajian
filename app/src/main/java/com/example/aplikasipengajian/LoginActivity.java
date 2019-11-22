@@ -3,6 +3,7 @@ package com.example.aplikasipengajian;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private List<MenuPengajian> list = new ArrayList<>();
     private List<JadwalPengajianResponse> mCategoryDataList = new ArrayList<>();
 
-    String kode_anggota="",nama_anggota,email;
+    String kode_anggota="",nama_anggota,email,sukses;
     EditText txtusername,txtpassword;
 
     @Override
@@ -40,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         txtusername=findViewById(R.id.edtUser);
         txtpassword=findViewById(R.id.edtPassword);
 
-        login("ry","ry");
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(user.length()<1){lengkapi("Username");}
                 else if(pass.length()<1){lengkapi("Password");}
                 else{
+                        login(user,pass);
 
-//                    sharedPref();
                 }
 
 
@@ -62,12 +62,18 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void login(String username,String password){
-        final PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
-        final Call<JadwalPengajianResponse> jadwalPengajianResponseCall = pengajianApi.userLogin(username,password);
-
+        PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
+        Call<JadwalPengajianResponse> jadwalPengajianResponseCall = pengajianApi.userLogin(username,password);
+        final ProgressDialog progressDialog;
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Menyiapkan data");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
         jadwalPengajianResponseCall.enqueue(new Callback<JadwalPengajianResponse>() {
             @Override
             public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
+
+                sukses= response.body().toString();
                 Log.d(TAG, "onResponse: "+ response.body());
                 if (response.code()==200){
                     Log.d(TAG, "onResponse: "+response.body().toString());
@@ -79,10 +85,16 @@ public class LoginActivity extends AppCompatActivity {
 //                            pengajian.getKode_anggota();
                             String kode= pengajian.getKode_anggota();
                             Log.d(TAG, "onResponse: "+kode);
-                        }
+                            Log.d(TAG, "onResponse: "+pengajian.getSukses());
+                            }
 //                            Log.d(TAG, "onResponse: " + kode_anggota+" "+nama_anggota+""+email);
 //                            list.add()
-                        }
+                            ;
+                        sharedPref();
+                        }else {
+                        gagal("login");
+                    }
+
 //                    JadwalPengajianResponse item = new JadwalPengajianResponse(list);
 //                    mCategoryDataList.add(item);
 //                    }
@@ -94,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                progressDialog.dismiss();
             }
 
             @Override
@@ -103,29 +116,24 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-//    protected void sharedPref() {
-//
-//        Log.v("SUKSES",kode_anggota);
-//
-//        if(sukses=="1"){
-//
-//
-//            final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-//            SharedPreferences.Editor editor = sharedPref.edit();
-//            editor.putBoolean("Registered", true);
-//            editor.putString("kode_anggota", kode_anggota);
-//            editor.putString("nama_anggota", nama_anggota);
-//            editor.putString("email", email);
-//            editor.apply();
-//            Intent i = new Intent(getApplicationContext(),MainActivity.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(i);
-//            finish();
-//        }
-//        else{
-//            gagal("Login");
-//        }
-//    }
+    protected void sharedPref() {
+
+        Log.v("SUKSES",kode_anggota);
+
+
+
+            final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putBoolean("Registered", true);
+            editor.putString("kode_anggota", kode_anggota);
+            editor.putString("nama_anggota", nama_anggota);
+            editor.putString("email", email);
+            editor.apply();
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            finish();
+    }
     public void gagal(String item){
         new AlertDialog.Builder(this)
                 .setTitle("Gagal Login")
