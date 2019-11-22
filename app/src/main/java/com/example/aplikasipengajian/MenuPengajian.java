@@ -9,6 +9,9 @@ class MenuPengajian implements Parcelable {
     public String foto;
 
     public String sukses;
+    public String kode_anggota;
+    public String nama_anggota;
+    public String email;
 
     public String username;
     public String password;
@@ -29,9 +32,15 @@ class MenuPengajian implements Parcelable {
     public String status;
     public String gambar;
 
-    public MenuPengajian() {
+    public MenuPengajian(String kode_anggota,String nama_anggota,String email) {
+        this.kode_anggota = kode_anggota;
+        this.nama_anggota = nama_anggota;
+        this.email = email;
     }
 
+    public MenuPengajian(){
+
+    }
     protected MenuPengajian(Parcel in) {
         nama = in.readString();
         foto = in.readString();
@@ -84,6 +93,30 @@ class MenuPengajian implements Parcelable {
         this.ulasan = ulasan;
         this.status = status;
         this.gambar = gambar;
+    }
+
+    public String getKode_anggota() {
+        return kode_anggota;
+    }
+
+    public void setKode_anggota(String kode_anggota) {
+        this.kode_anggota = kode_anggota;
+    }
+
+    public String getNama_anggota() {
+        return nama_anggota;
+    }
+
+    public void setNama_anggota(String nama_anggota) {
+        this.nama_anggota = nama_anggota;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public MenuPengajian(String latitude, String longitude) {

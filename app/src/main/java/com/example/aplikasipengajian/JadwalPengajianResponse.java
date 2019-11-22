@@ -1,11 +1,21 @@
 package com.example.aplikasipengajian;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class JadwalPengajianResponse {
+
+    private String sukses;
+
+    public JadwalPengajianResponse(String sukses){
+        this.sukses = sukses;
+    }
+
+
 
     @SerializedName("record")
     @Expose()
@@ -21,8 +31,9 @@ public class JadwalPengajianResponse {
 
     @Override
     public String toString() {
-        return "JadwalPengajianResponse{" +
-                "menuPengajians=" + menuPengajians +
-                '}';
+        return sukses;
     }
+//    public String getSukses(){
+//        return sukses;
+//    }
 }

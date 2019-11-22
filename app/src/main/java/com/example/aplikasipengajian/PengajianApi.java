@@ -11,6 +11,6 @@ public interface PengajianApi {
 
    @GET("anggota/anggota_login.php")
    //tambahin @path untuk bikin login
-    Call<LoginResponse> userLogin
+    Call<JadwalPengajianResponse> userLogin
     ( @Query("username") String username, @Query("password") String password);
 }
