@@ -9,7 +9,7 @@ import java.util.List;
 
 public class JadwalPengajianResponse {
 
-    private String sukses;
+    public String sukses;
 
     public JadwalPengajianResponse(String sukses){
         this.sukses = sukses;

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 
@@ -19,8 +21,10 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<MenuPengajian> list = new ArrayList<>();
+    String kode_anggota, nama_anggota;
 
     private static final String TAG = "MainActivity";
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
 
         list.addAll(getListMenu());
         showRecyclerList();
+//
+//        session = new SessionManager(getApplicationContext());
+//        session.checkLogin();
+//
+//        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+//        Boolean Registered = sharedPref.getBoolean("Registered", false);
+//        if (!Registered){
+//            finish();
+//        }else {
+//            kode_anggota= sharedPref.getString("kode_anggota", "");
+//            nama_anggota = sharedPref.getString("nama_anggota", "");
+//        }
     }
 
 

@@ -8,7 +8,7 @@ class MenuPengajian implements Parcelable {
     public String nama;
     public String foto;
 
-    public String sukses;
+    public int sukses;
     public String kode_anggota;
     public String nama_anggota;
     public String email;
@@ -122,11 +122,11 @@ class MenuPengajian implements Parcelable {
     public MenuPengajian(String latitude, String longitude) {
     }
 
-    public String getSukses() {
+    public int getSukses() {
         return sukses;
     }
 
-    public void setSukses(String sukses) {
+    public void setSukses(int sukses) {
         this.sukses = sukses;
     }
 
