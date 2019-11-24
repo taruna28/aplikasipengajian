@@ -15,10 +15,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class DetailJadwalActivity extends AppCompatActivity {
     public static final String EXTRA_FILM = "extra";
-    TextView tvNamaPengajian,tvTema,tvPengisi;
+    TextView tvNamaPengajian,tvTema,tvPengisi,tvdeskripsi,tvpenyelenggara,
+            tvAlamat,tvKeterangan,tvTanggalPosting,tvWaktu;
     ImageView ivGambar;
 //  TextView textView2;
-    String namaPengajian, namaTema,gambar,pengisiAcara,myLati,latitude,myLongi,longitude;
+    String namaPengajian, namaTema,gambar,pengisiAcara,myLati,latitude,myLongi,longitude,
+    deskripsi,alamat,keterangan,tanggalPosting,waktu,penyelenggara;
     Button btnmaps;
     MenuPengajian menuPengajian;
 
@@ -31,7 +33,13 @@ public class DetailJadwalActivity extends AppCompatActivity {
         tvTema = findViewById(R.id.tv_tema2);
         btnmaps = findViewById(R.id.btnMaps);
         tvPengisi = findViewById(R.id.tv_nama_pengisi2);
+        tvpenyelenggara = findViewById(R.id.tv_penyelenggara2);
         ivGambar = findViewById(R.id.iv_gambar);
+        tvdeskripsi = findViewById(R.id.tv_deskripsi2);
+        tvAlamat = findViewById(R.id.tv_alamat2);
+        tvKeterangan = findViewById(R.id.tv_keterangan2);
+        tvTanggalPosting=findViewById(R.id.tv_tgl_posting2);
+        tvWaktu = findViewById(R.id.tv_waktu2);
 
         latitude = "-6.120255";
         longitude= "106.910150";
@@ -42,6 +50,12 @@ public class DetailJadwalActivity extends AppCompatActivity {
         namaPengajian = menuPengajian.getTema();
         gambar = menuPengajian.getGambar();
         pengisiAcara= menuPengajian.getPengisi_acara();
+        penyelenggara = menuPengajian.getPenyelenggara();
+        deskripsi = menuPengajian.getDeskripsi();
+        alamat = menuPengajian.getAlamat();
+        keterangan = menuPengajian.getKeterangan();
+        tanggalPosting = menuPengajian.getTgl_posting();
+        waktu= menuPengajian.getTgl_pelaksanaan()+" "+menuPengajian.getJam_pelaksanaan();
 
         myLati = menuPengajian.getLatitude();
         myLongi = menuPengajian.getLongitude();
@@ -66,6 +80,13 @@ public class DetailJadwalActivity extends AppCompatActivity {
         tvNamaPengajian.setText(namaTema);
         tvTema.setText(namaPengajian);
         tvPengisi.setText(pengisiAcara);
+        tvpenyelenggara.setText(penyelenggara);
+        tvdeskripsi.setText(deskripsi);
+        tvAlamat.setText(alamat);
+        tvKeterangan.setText(keterangan);
+        tvTanggalPosting.setText(tanggalPosting);
+        tvWaktu.setText(waktu);
+
         btnmaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
