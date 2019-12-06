@@ -84,6 +84,7 @@ public class ListPengajianActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()){
                     try {
+//                        Log.d(TAG, "onResponse sukses: "+response.body().getMenuPengajians());
 
                         int total = response.body().getMenuPengajians().size();
 
@@ -110,6 +111,7 @@ public class ListPengajianActivity extends AppCompatActivity {
 
                         JadwalPengajianResponse item = new JadwalPengajianResponse(list);
                         mCategoryDataList.add(item);
+                        Log.d(TAG, "onResponse listpengajianactivity: "+mCategoryDataList);
 
                         listJadwalAdapter = new ListJadwalAdapter(ListPengajianActivity.this,list);
                         recyclerView.setAdapter(listJadwalAdapter);

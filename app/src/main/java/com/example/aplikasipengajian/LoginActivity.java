@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    Button buttonLogin;
+    Button buttonLogin,buttonRegister;
     private static final String TAG = "LoginActivity";
     private List<MenuPengajian> list = new ArrayList<>();
     private List<JadwalPengajianResponse> mCategoryDataList = new ArrayList<>();
@@ -37,10 +38,19 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         buttonLogin = findViewById(R.id.btn_sign_in);
+        buttonRegister = findViewById(R.id.btn_sign_up);
 
         txtusername=findViewById(R.id.edtUser);
         txtpassword=findViewById(R.id.edtPassword);
 
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(LoginActivity.this, "belum di buat gunakan username = a dan password = a ", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Menyiapkan data");
         progressDialog.show();
         progressDialog.setCancelable(false);
+        //alternatifnya gk usah pakai sharedpreference karena masih bikin error
         jadwalPengajianResponseCall.enqueue(new Callback<JadwalPengajianResponse>() {
             @Override
             public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
@@ -83,8 +94,9 @@ public class LoginActivity extends AppCompatActivity {
                         List<MenuPengajian> menuPengajians = new ArrayList<>(response.body().getMenuPengajians());
                         for (MenuPengajian pengajian : menuPengajians) {
 //                            pengajian.getKode_anggota();
-                            String kode= pengajian.getKode_anggota();
-                            Log.d(TAG, "onResponse: "+kode);
+                            kode_anggota= pengajian.getKode_anggota();
+                            nama_anggota =pengajian.getNama_anggota();
+                            email=pengajian.getNama_anggota();
                             Log.d(TAG, "onResponse: "+pengajian.getSukses());
                             }
 //                            Log.d(TAG, "onResponse: " + kode_anggota+" "+nama_anggota+""+email);
@@ -120,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Log.v("SUKSES",kode_anggota);
 
-
+//        if(sukses==1) {
 
             final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
             SharedPreferences.Editor editor = sharedPref.edit();
@@ -129,10 +141,13 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString("nama_anggota", nama_anggota);
             editor.putString("email", email);
             editor.apply();
-            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
+//        }else{
+//            gagal("login");
+//        }
     }
     public void gagal(String item){
         new AlertDialog.Builder(this)

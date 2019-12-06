@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
     tools:context=".DetailJadwalActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
     <ImageView
         android:id="@+id/iv_gambar"
@@ -61,28 +67,144 @@
         android:id="@+id/btnMaps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="get direcetion"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama_pengisi2"
+        android:text="get direction"
+        app:layout_constraintTop_toBottomOf="@id/tv_waktu2"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:id="@+id/tv_nama_pengisi"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_tema2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pengisi acara"/>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_nama_pengisi"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_tema2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pengisi acara"/>
 
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:id="@+id/tv_nama_pengisi2"
-            app:layout_constraintTop_toBottomOf="@id/tv_nama_pengisi"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ini detail activity jadwal"/>
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_nama_pengisi2"
+        app:layout_constraintTop_toBottomOf="@id/tv_nama_pengisi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ini detail activity jadwal"/>
 
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_penyelenggara"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_nama_pengisi2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Penyelenggara"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_penyelenggara2"
+        app:layout_constraintTop_toBottomOf="@id/tv_penyelenggara"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ini detail activity jadwal"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_deskripsi"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_penyelenggara2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_deskripsi2"
+        app:layout_constraintTop_toBottomOf="@id/tv_deskripsi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_Alamat"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_deskripsi2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_alamat2"
+        app:layout_constraintTop_toBottomOf="@id/tv_Alamat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_keterangan"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_alamat2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keterangan"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_keterangan2"
+        app:layout_constraintTop_toBottomOf="@id/tv_keterangan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keterangan"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_tgl_posting"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_keterangan2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Posting"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_tgl_posting2"
+        app:layout_constraintTop_toBottomOf="@id/tv_tgl_posting"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Posting"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_waktu"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_tgl_posting2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waktu Pelaksanaan"/>
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tv_waktu2"
+        app:layout_constraintTop_toBottomOf="@id/tv_waktu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="waktu"/>
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

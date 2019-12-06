@@ -1,9 +1,11 @@
 package com.example.aplikasipengajian;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -18,13 +20,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<MenuPengajian> list = new ArrayList<>();
     String kode_anggota, nama_anggota;
 
     private static final String TAG = "MainActivity";
-    SessionManager session;
+//    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //        session = new SessionManager(getApplicationContext());
 //        session.checkLogin();
-//
+
 //        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 //        Boolean Registered = sharedPref.getBoolean("Registered", false);
 //        if (!Registered){
@@ -48,9 +51,19 @@ public class MainActivity extends AppCompatActivity {
 //            kode_anggota= sharedPref.getString("kode_anggota", "");
 //            nama_anggota = sharedPref.getString("nama_anggota", "");
 //        }
+//    }
+
+
+//        SharedPreferences preferences = getSharedPreferences(PREF_LOGIN, MODE_PRIVATE);
+//
+//        Intent intent = null;
+//        if(preferences.contains(KEY_CREDENTIALS)){              //if user is currently logged in;
+//            intent = new Intent(this, MainActivity.class);
+//        }else {                                                 //if user is not yet logged in;
+//            intent = new Intent(this, LoginActivity.class);
+//        }
+//        startActivity(intent);
     }
-
-
 
     public ArrayList<MenuPengajian> getListMenu(){
         String[] dataName = getResources().getStringArray(R.array.data_name);
@@ -68,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showRecyclerList(){
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         PengajianAdapter pengajianAdapter = new PengajianAdapter(this,list);
         recyclerView.setAdapter(pengajianAdapter);
     }

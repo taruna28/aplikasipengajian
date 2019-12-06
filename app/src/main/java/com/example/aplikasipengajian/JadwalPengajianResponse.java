@@ -9,12 +9,11 @@ import java.util.List;
 
 public class JadwalPengajianResponse {
 
-    public String sukses;
+     String sukses;
 
-    public JadwalPengajianResponse(String sukses){
-        this.sukses = sukses;
-    }
-
+//    public JadwalPengajianResponse(String sukses){
+//        this.sukses = sukses;
+//    }
 
 
     @SerializedName("record")

@@ -32,7 +32,7 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
     @NonNull
     @Override
     public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu,parent,false);
         return new GridViewHolder(view);
     }
 
