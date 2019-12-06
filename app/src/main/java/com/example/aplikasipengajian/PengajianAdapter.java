@@ -43,6 +43,7 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
         Glide.with(holder.itemView.getContext())
                 .load(menuPengajian.getFoto())
                 .apply(new RequestOptions().override(550,550))
+        .apply(RequestOptions.circleCropTransform())
                 .into(holder.imgPhoto);
 
         holder.tvName.setText(menuPengajian.getNama());

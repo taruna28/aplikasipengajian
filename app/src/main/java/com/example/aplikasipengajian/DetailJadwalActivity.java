@@ -41,8 +41,8 @@ public class DetailJadwalActivity extends AppCompatActivity {
         tvTanggalPosting=findViewById(R.id.tv_tgl_posting2);
         tvWaktu = findViewById(R.id.tv_waktu2);
 
-        latitude = "-6.120255";
-        longitude= "106.910150";
+        latitude = "-6.172544";
+        longitude = "106.873454";
 //        getExtras
         menuPengajian = getIntent().getParcelableExtra(EXTRA_FILM);
 
