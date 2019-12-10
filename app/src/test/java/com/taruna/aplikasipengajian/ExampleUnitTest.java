@@ -1,4 +1,4 @@
-package com.example.aplikasipengajian;
+package com.taruna.aplikasipengajian;
 
 import org.junit.Test;
 

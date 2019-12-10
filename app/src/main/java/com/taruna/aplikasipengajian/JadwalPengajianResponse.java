@@ -1,6 +1,4 @@
-package com.example.aplikasipengajian;
-
-import androidx.annotation.NonNull;
+package com.taruna.aplikasipengajian;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -8,13 +6,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class JadwalPengajianResponse {
-
      String sukses;
 
 //    public JadwalPengajianResponse(String sukses){
 //        this.sukses = sukses;
 //    }
-
 
     @SerializedName("record")
     @Expose()

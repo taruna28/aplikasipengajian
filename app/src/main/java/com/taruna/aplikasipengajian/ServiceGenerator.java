@@ -1,4 +1,4 @@
-package com.example.aplikasipengajian;
+package com.taruna.aplikasipengajian;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

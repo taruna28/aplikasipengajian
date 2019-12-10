@@ -1,13 +1,6 @@
-package com.example.aplikasipengajian;
-
-import android.util.Log;
+package com.taruna.aplikasipengajian;
 
 import androidx.annotation.NonNull;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class LoginResponse {
 

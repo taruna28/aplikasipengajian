@@ -1,4 +1,4 @@
-package com.example.aplikasipengajian;
+package com.taruna.aplikasipengajian;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -17,13 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.GridViewHolder>{
-    private ArrayList<MenuPengajian> pengajianArrayList;
+public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.GridViewHolder>{
+    private List<MenuPengajian> pengajianArrayList;
     Context mContext;
+    ListPengajianActivity listPengajianActivity = new ListPengajianActivity();
 
-    public PengajianAdapter(Context context,ArrayList<MenuPengajian> list){
+    public ListJadwalAdapter(Context context, List<MenuPengajian> list){
         this.pengajianArrayList = list;
         mContext = context;
     }
@@ -32,23 +31,24 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
     @NonNull
     @Override
     public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid,parent,false);
         return new GridViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GridViewHolder holder, final int position) {
-        final MainActivity mainActivity = new MainActivity();
+//        final MainActivity mainActivity = new MainActivity();
         MenuPengajian menuPengajian= pengajianArrayList.get(position);
+
+//        http://app-pengajian.000webhostapp.com/ypathfile/pbm2.PNG
         Glide.with(holder.itemView.getContext())
-                .load(menuPengajian.getFoto())
+                .load("http://app-pengajian.000webhostapp.com/ypathfile/"+menuPengajian.getGambar())
                 .apply(new RequestOptions().override(550,550))
-        .apply(RequestOptions.circleCropTransform())
                 .into(holder.imgPhoto);
 
-        holder.tvName.setText(menuPengajian.getNama());
-
-
+        holder.tvPengisiAcara.setText(menuPengajian.getPengisi_acara());
+        holder.tvNamaPengajian.setText(menuPengajian.getNama_pengajian());
+        holder.tvWaktu.setText(menuPengajian.getTgl_pelaksanaan()+" - "+menuPengajian.getJam_pelaksanaan());
 //        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -70,7 +70,7 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
 
 
         ImageView imgPhoto;
-        TextView tvName;
+        TextView tvPengisiAcara,tvNamaPengajian, tvWaktu;
         ConstraintLayout constraintLayout;
         Context ucontext;
 
@@ -78,7 +78,9 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
             //karena ada konstruktor parent
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_nama_pengajian);
+            tvPengisiAcara = itemView.findViewById(R.id.tv_nama_pengisi);
+            tvNamaPengajian= itemView.findViewById(R.id.tv_nama_pengajian);
+            tvWaktu = itemView.findViewById(R.id.tv_waktu);
             constraintLayout = itemView.findViewById(R.id.parent_layout);
             ucontext = itemView.getContext();
             constraintLayout.setOnClickListener(this);
@@ -89,20 +91,13 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
         @Override
         public void onClick(View v) {
             final Intent intent;
-            switch (getAdapterPosition()){
-                case 0:
-                    intent =  new Intent(ucontext, ListPengajianActivity.class);
-                    break;
-
-                case 1:
-                    intent =  new Intent(ucontext, MapsActivity.class);
-                    break;
-
-                default:
-                    intent =  new Intent(ucontext, Menu_utama.class);
-                    break;
-            }
+            int pos = getAdapterPosition();
+            intent = new Intent(ucontext,DetailJadwalActivity.class);
+//            intent.putExtra("kode_pengajian",pengajianArrayList.get(getAdapterPosition()));
+//            intent.putExtra("Kode_pengajian",pengajianArrayList.get(pos).getKode_pengajian());
+            intent.putExtra(DetailJadwalActivity.EXTRA_FILM,pengajianArrayList.get(pos));
             ucontext.startActivity(intent);
+//            listPengajianActivity.testRetrofitRequest();
         }
     }
 

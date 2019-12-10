@@ -10,5 +10,8 @@
         <item>https://upload.wikimedia.org/wikipedia/id/3/33/Peta_indonesia.jpg</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
+    <string name="release_movie_message">notifikasi pengajian</string>
+    <string name="daily_mess">cek jadwal pengajian</string>
+    <string name="reminder_daily">cek jadwal pengajian</string>
 
 </resources>

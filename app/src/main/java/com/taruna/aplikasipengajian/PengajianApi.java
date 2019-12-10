@@ -1,4 +1,4 @@
-package com.example.aplikasipengajian;
+package com.taruna.aplikasipengajian;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
