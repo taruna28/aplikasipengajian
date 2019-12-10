@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "18381506845",
+    "firebase_url": "https://aplikasi-pengajian.firebaseio.com",
+    "project_id": "aplikasi-pengajian",
+    "storage_bucket": "aplikasi-pengajian.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18381506845:android:4b57a59be15a73fed4b9f4",
+        "android_client_info": {
+          "package_name": "com.example.aplikasipengajian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18381506845-3ucmjvnc18hm7f1760p22faj8ha40br7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aplikasipengajian",
+            "certificate_hash": "e0f2fa470a26dc304f9531e967cc056ba8714083"
+          }
+        },
+        {
+          "client_id": "18381506845-3qt8mecaif30h3nb6p8m8l9fc9bs5b8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aplikasipengajian",
+            "certificate_hash": "20690f2ddf74fe9fa74a1649fa59e90bd0b956ab"
+          }
+        },
+        {
+          "client_id": "18381506845-h00pprmnifed0jbhomnpe0qbq0bup6d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpOVlCnkMXBe48B0vbGYilKJ-ll6fQ_C4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18381506845-h00pprmnifed0jbhomnpe0qbq0bup6d3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18381506845:android:939ae5cabde2467ed4b9f4",
+        "android_client_info": {
+          "package_name": "com.taruna.aplikasipengajian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18381506845-sqipt7ueupl00d238hlsv143t8j62qig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taruna.aplikasipengajian",
+            "certificate_hash": "e0f2fa470a26dc304f9531e967cc056ba8714083"
+          }
+        },
+        {
+          "client_id": "18381506845-i841hdc6i2c07nc79gnq3vlnrehpl5q9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taruna.aplikasipengajian",
+            "certificate_hash": "20690f2ddf74fe9fa74a1649fa59e90bd0b956ab"
+          }
+        },
+        {
+          "client_id": "18381506845-h00pprmnifed0jbhomnpe0qbq0bup6d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpOVlCnkMXBe48B0vbGYilKJ-ll6fQ_C4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18381506845-h00pprmnifed0jbhomnpe0qbq0bup6d3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
