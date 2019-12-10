@@ -1,4 +1,4 @@
-package com.example.aplikasipengajian;
+package com.taruna.aplikasipengajian;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         String password = edtPassword.getText().toString().trim();
 
         PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
-        Call<ResponseBody> responseCall = pengajianApi.userRegister(username,email,telepon,nama,password);
+        Call<ResponseBody> responseCall = pengajianApi.userRegister(nama,email,telepon,username,password);
         responseCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
