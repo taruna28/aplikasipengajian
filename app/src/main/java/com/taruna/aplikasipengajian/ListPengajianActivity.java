@@ -19,7 +19,7 @@ import retrofit2.Response;
 public class ListPengajianActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<MenuPengajian> list = new ArrayList<>();
-    private List<JadwalPengajianResponse> mCategoryDataList = new ArrayList<>();
+//    private List<JadwalPengajianResponse> mCategoryDataList = new ArrayList<>();
     ListJadwalAdapter listJadwalAdapter;
 
     private static final String TAG = "MainActivity";
@@ -107,9 +107,9 @@ public class ListPengajianActivity extends AppCompatActivity {
                                    list.add(model);
                         }
 
-                        JadwalPengajianResponse item = new JadwalPengajianResponse(list);
-                        mCategoryDataList.add(item);
-                        Log.d(TAG, "onResponse listpengajianactivity: "+mCategoryDataList);
+//                        JadwalPengajianResponse item = new JadwalPengajianResponse(list);
+//                        mCategoryDataList.add(item);
+//                        Log.d(TAG, "onResponse listpengajianactivity: "+mCategoryDataList);
 
                         listJadwalAdapter = new ListJadwalAdapter(ListPengajianActivity.this,list);
                         recyclerView.setAdapter(listJadwalAdapter);
