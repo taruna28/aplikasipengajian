@@ -25,8 +25,8 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     Button buttonLogin,buttonRegister;
     private static final String TAG = "LoginActivity";
-    private List<MenuPengajian> list = new ArrayList<>();
-    private List<JadwalPengajianResponse> mCategoryDataList = new ArrayList<>();
+//    private List<MenuPengajian> list = new ArrayList<>();
+//    private List<JadwalPengajianResponse> mCategoryDataList = new ArrayList<>();
 
     String kode_anggota="",nama_anggota,email,sukses;
     EditText txtusername,txtpassword;
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 //                            Log.d(TAG, "onResponse: " + kode_anggota+" "+nama_anggota+""+email);
 //                            list.add()
                             ;
-                        sharedPref();
+                        pindahActivity();
                         }else {
                         gagal("login");
                     }
@@ -127,19 +127,19 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    protected void sharedPref() {
+    protected void pindahActivity() {
 
         Log.v("SUKSES",kode_anggota);
 
 //        if(sukses==1) {
 
-            final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putBoolean("Registered", true);
-            editor.putString("kode_anggota", kode_anggota);
-            editor.putString("nama_anggota", nama_anggota);
-            editor.putString("email", email);
-            editor.apply();
+//            final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+//            SharedPreferences.Editor editor = sharedPref.edit();
+//            editor.putBoolean("Registered", true);
+//            editor.putString("kode_anggota", kode_anggota);
+//            editor.putString("nama_anggota", nama_anggota);
+//            editor.putString("email", email);
+//            editor.apply();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);

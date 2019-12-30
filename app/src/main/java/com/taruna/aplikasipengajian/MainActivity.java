@@ -91,37 +91,37 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(pengajianAdapter);
     }
 
-    public void testRetrofitRequest(){
-        PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
-
-        Call<JadwalPengajianResponse> responseCall = pengajianApi.jadwalPengajian();
-
-        responseCall.enqueue(new Callback<JadwalPengajianResponse>() {
-            @Override
-            public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
-                Log.d(TAG, "onResponse: "+ response.toString());
-                if (response.code()==200){
-                    Log.d(TAG, "onResponse: "+response.body().toString());
-                    List<MenuPengajian> menuPengajians = new ArrayList<>(response.body().getMenuPengajians());
-                    for (MenuPengajian pengajian : menuPengajians){
-                        Log.d(TAG, "onResponse: "+pengajian.getKode_pengajian());
-                    }
-                }
-                else {
-                    try {
-                        Log.d(TAG, "onResponse: "+response.errorBody().string());
-                    }catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<JadwalPengajianResponse> call, Throwable t) {
-                Log.d(TAG, "onFailure: gagal");
-            }
-        });
-    }
+//    public void testRetrofitRequest(){
+//        PengajianApi pengajianApi = ServiceGenerator.getPengajianApi();
+//
+//        Call<JadwalPengajianResponse> responseCall = pengajianApi.jadwalPengajian();
+//
+//        responseCall.enqueue(new Callback<JadwalPengajianResponse>() {
+//            @Override
+//            public void onResponse(Call<JadwalPengajianResponse> call, Response<JadwalPengajianResponse> response) {
+//                Log.d(TAG, "onResponse: "+ response.toString());
+//                if (response.code()==200){
+//                    Log.d(TAG, "onResponse: "+response.body().toString());
+//                    List<MenuPengajian> menuPengajians = new ArrayList<>(response.body().getMenuPengajians());
+//                    for (MenuPengajian pengajian : menuPengajians){
+//                        Log.d(TAG, "onResponse: "+pengajian.getKode_pengajian());
+//                    }
+//                }
+//                else {
+//                    try {
+//                        Log.d(TAG, "onResponse: "+response.errorBody().string());
+//                    }catch (IOException e){
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JadwalPengajianResponse> call, Throwable t) {
+//                Log.d(TAG, "onFailure: gagal");
+//            }
+//        });
+//    }
 //    private void releaseReminderOn() {
 //        String time = "08:00";
 //        String message = getResources().getString(R.string.release_movie_message);
