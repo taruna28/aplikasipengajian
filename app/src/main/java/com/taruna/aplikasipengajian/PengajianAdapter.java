@@ -36,11 +36,11 @@ public class PengajianAdapter extends RecyclerView.Adapter<PengajianAdapter.Grid
 
     @Override
     public void onBindViewHolder(@NonNull GridViewHolder holder, final int position) {
-        final MainActivity mainActivity = new MainActivity();
+//        final MainActivity mainActivity = new MainActivity();
         MenuPengajian menuPengajian= pengajianArrayList.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(menuPengajian.getFoto())
-                .apply(new RequestOptions().override(550,550))
+                .apply(new RequestOptions().override(250,250))
         .apply(RequestOptions.circleCropTransform())
                 .into(holder.imgPhoto);
 

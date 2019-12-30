@@ -7,7 +7,7 @@
 
     <string-array name="data_photo">
         <item>https://upload.wikimedia.org/wikipedia/commons/b/b3/Alwakhra_Masjid.jpg</item>
-        <item>https://upload.wikimedia.org/wikipedia/id/3/33/Peta_indonesia.jpg</item>
+        <item>https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Map-icon.svg/1024px-Map-icon.svg.png</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="release_movie_message">notifikasi pengajian</string>

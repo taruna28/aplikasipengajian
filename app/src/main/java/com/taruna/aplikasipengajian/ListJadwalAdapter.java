@@ -20,7 +20,7 @@ import java.util.List;
 public class ListJadwalAdapter extends RecyclerView.Adapter<ListJadwalAdapter.GridViewHolder>{
     private List<MenuPengajian> pengajianArrayList;
     Context mContext;
-    ListPengajianActivity listPengajianActivity = new ListPengajianActivity();
+//    ListPengajianActivity listPengajianActivity = new ListPengajianActivity();
 
     public ListJadwalAdapter(Context context, List<MenuPengajian> list){
         this.pengajianArrayList = list;

@@ -6,12 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    android:id="@+id/parent_layout">
+    android:id="@+id/parent_layout"
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FF000000"
         android:id="@+id/cardview"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,7 +18,7 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="1dp">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_gravity="center_horizontal|center_vertical"
